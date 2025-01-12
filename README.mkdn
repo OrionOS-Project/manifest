@@ -12,7 +12,7 @@ repo init -u https://github.com/OrionOS-Project/manifest -b vic --git-lfs
 
 ### Sync sources
 ```
-repo sync -c --no-clone-bundle --optimized-fetch --prune --force-sync -j$(nproc --all)
+repo sync -c --no-clone-bundle --optimized-fetch --prune -j$(nproc --all)
 ```
 
 ### Run your build
@@ -28,4 +28,6 @@ ORION_MAINTAINER := Unknown
 ORION_GAPPS := true/false
 TARGET_ENABLE_BLUR := true/false
 TARGET_BOOT_ANIMATION_RES := 720/1080/1440
+# Bootanimation flags for Pixel Device
+TARGET_PIXEL_BOOT_ANIMATION_RES := 1080/1440
 ```
