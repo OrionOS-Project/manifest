@@ -36,4 +36,5 @@
   <project path="vendor/lineage/signed" name="official_maintainer" remote="orion" />
   <project path="vendor/addons" name="vendor_addons" remote="orion" />
   <project path="system/sepolicy" name="system_sepolicy" remote="orion" groups="pdk" />
+  <project path="hardware/interfaces" name="hardware_interfaces" remote="orion" groups="pdk,sysui-studio" />
 </manifest>
