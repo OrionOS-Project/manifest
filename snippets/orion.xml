@@ -7,11 +7,47 @@
            sync-j="4"
            revision="refs/heads/vic" />
 
-  <remote  name="orion-gitea"
-           fetch="https://gitea.com/OrionOS-Project"
+  <remote  name="orion-bitbucket"
+           fetch="https://bitbucket.org/orionos-prjkt"
+           sync-c="true"
+           sync-j="4"
            revision="refs/heads/vic" />
 
-  <project path="manifest" name="manifest" remote="orion" />
+  <remote  name="orion-gitea"
+           fetch="https://gitea.com/OrionOS-Project"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/vic" />
+
+  <remote  name="github-other"
+           sync-c="true"
+           sync-j="4"
+           fetch="https://github.com" />
+
+    <remote  name="evolution"
+           fetch="https://github.com/Evolution-X"
+           sync-c="true"
+           sync-j="4"
+           revision="refs/heads/vic" />
+
+    <remote  name="crdroid"
+           fetch="https://github.com/crdroidandroid"
+           sync-c="true"
+           sync-j="4" />
+
+  <!-- Manifest -->
+  <project path="orion/manifest" name="manifest" remote="orion" />
+
+  <!-- Art -->
+  <project path="art" name="art" groups="pdk" remote="orion" />
+
+  <!-- Bionic -->
+  <project path="bionic" name="bionic" groups="pdk" remote="orion" />
+
+  <!-- Recovery -->
+  <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="orion" />
+
+  <!-- Build -->
   <project path="build/make" name="build" groups="pdk,sysui-studio" remote="orion" >
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
     <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
@@ -24,17 +60,110 @@
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
+  <project path="build/release" name="build_release" groups="pdk,tradefed" remote="orion" />
+
+  <!-- External -->
+  <project path="external/piex" name="external_piex" groups="pdk" remote="orion" />
+
+  <!-- Hardware -->
+  <project path="hardware/interfaces" name="hardware_interfaces" groups="pdk,sysui-studio" remote="orion" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="orion" />
   <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="orion" />
-  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="orion"/>
+  <project path="frameworks/libs/systemui" name="frameworks_libs_systemui" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="orion" />
   <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="orion" />
+  <project path="frameworks/opt/net/wifi" name="frameworks_opt_net_wifi" groups="pdk,sysui-studio" remote="orion" />
+  <project path="frameworks/opt/telephony" name="frameworks_opt_telephony" groups="pdk" remote="orion" />
+
+  <!-- Packages -->
+  <project path="packages/apps/Backgrounds" name="packages_apps_Backgrounds" remote="orion" />
+  <project path="packages/apps/BtHelper" name="TheParasiteProject/packages_apps_BtHelper" revision="main" remote="github-other" />
+  <project path="packages/apps/Molecular" name="packages_apps_Molecular" remote="orion" />
+  <project path="packages/apps/Updater" name="packages_apps_Updater" remote="orion" />
+  <project path="packages/apps/FaceUnlock" name="packages_apps_FaceUnlock" remote="orion" />
+  <project path="packages/apps/GameSpace" name="packages_apps_GameSpace" remote="orion" />
+  <project path="packages/apps/Launcher3" name="packages_apps_Launcher3" groups="pdk-fs,sysui-studio" remote="orion" />
+  <project path="packages/apps/LineageParts" name="packages_apps_LineageParts" remote="orion" />
+  <project path="packages/apps/Pif" name="packages_apps_Pif" remote="evolution" />
   <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs,pdk-cw-tvc" remote="orion" />
   <project path="packages/apps/SetupWizard" name="packages_apps_SetupWizard" remote="orion" />
-  <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="orion" />
+  <project path="packages/apps/SystemUIFlagFlipper" name="packages_apps_SystemUIFlagFlipper" remote="evolution" />
+  <project path="packages/modules/Bluetooth" name="packages_modules_Bluetooth" groups="pdk" remote="orion" />
+  <project path="packages/modules/Wifi" name="packages_modules_Wifi" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="orion" />
+  <project path="packages/services/DeviceAsWebcam" name="packages_services_DeviceAsWebcam" groups="pdk-cw-fs,pdk-fs" remote="orion" />
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" groups="pdk-cw-fs,pdk-fs" remote="orion" />
+  <project path="packages/services/OmniJaws" name="packages_services_OmniJaws" groups="pdk" remote="orion" />
+
+  <!-- SDK -->
+  <project path="lineage-sdk" name="lineage-sdk" remote="orion" />
+
+  <!-- Sepolicy -->
   <project path="device/lineage/sepolicy" name="device_orion_sepolicy" remote="orion" />
-  <project path="vendor/lineage" name="vendor_orion" remote="orion" />
-  <project path="vendor/gms" name="vendor_gms" remote="orion-gitea" clone-depth="1" />
-  <project path="vendor/lineage/signed" name="official_maintainer" remote="orion" />
+  <project path="system/sepolicy" name="system_sepolicy" groups="pdk" remote="orion" />
+
+  <!-- System -->
+  <project path="system/core" name="system_core" groups="pdk" remote="orion" />
+  <project path="system/libhwbinder" name="system_libhwbinder" remote="orion" />
+
+  <!-- Vendor -->
+  <project path="vendor/certification" name="vendor_certification" remote="orion" />
   <project path="vendor/addons" name="vendor_addons" remote="orion" />
-  <project path="system/sepolicy" name="system_sepolicy" remote="orion" groups="pdk" />
-  <project path="hardware/interfaces" name="hardware_interfaces" remote="orion" groups="pdk,sysui-studio" />
+  <project path="vendor/gms" name="vendor_gms" remote="orion-bitbucket" clone-depth="1" />
+  <project path="vendor/lineage" name="vendor_orion" remote="orion" />
+  <project path="vendor/pixel-framework" name="vendor_pixel-framework" remote="orion" />
+  <project path="vendor/pixel-style" name="vendor_pixel-style" remote="orion" />
+
+  <!-- OTA -->
+  <project path="orion/orion_ota" name="orion_ota" remote="orion" />
+  <project path="orion/orion_ota-vanilla" name="orion_ota" remote="orion" revision="vic-vanilla" />
+
+  <!-- Codelinaro Additions -->
+  <project path="hardware/qcom-caf/common" name="hardware_qcom-caf_common" groups="qcom" remote="orion" >
+    <!-- Add guard for AOSP hardware/qcom dir -->
+    <linkfile src="os_pickup_aosp.mk" dest="hardware/qcom/Android.mk" />
+    <!-- Add guards for Codelinaro repositories -->
+    <linkfile src="os_pickup_sepolicy_vndr.mk" dest="device/qcom/sepolicy_vndr/SEPolicy.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/msm8953/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8953/Android.mk" />
+    <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8996/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8996/Android.mk" />
+    <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8998/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8998/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm660/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sdm660/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm845/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sdm845/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8150/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8150/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8250/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8250/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8350/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8350/Android.mk" />
+    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm8450/audio/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8450/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8450/Android.mk" />
+    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm8550/audio/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8550/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8550/Android.mk" />
+    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm8650/audio/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8650/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8650/Android.mk" />
+  </project>
+
+    <!-- Codelinaro SM8650 HALs -->
+  <project path="hardware/qcom-caf/sm8650/audio/agm" name="vendor_qcom_opensource_agm" groups="qcom,lanai-audio" revision="vic-sm8650" remote="orion" />
+  <project path="hardware/qcom-caf/sm8650/audio/pal" name="vendor_qcom_opensource_arpal-lx" groups="qcom,lanai-audio" revision="vic-sm8650" remote="orion" />
+  <project path="hardware/qcom-caf/sm8650/audio/primary-hal" name="hardware_qcom_audio-ar" groups="qcom,lanai-audio" revision="vic-sm8650" remote="orion" />
+  <project path="hardware/qcom-caf/sm8650/data-ipa-cfg-mgr" name="vendor_qcom_opensource_data-ipa-cfg-mgr" groups="qcom,lanai-vendor" revision="vic-sm8650" remote="orion" />
+  <project path="hardware/qcom-caf/sm8650/dataipa" name="vendor_qcom_opensource_dataipa" groups="qcom,lanai-vendor" revision="vic-sm8650" remote="orion" />
+  <project path="hardware/qcom-caf/sm8650/display" name="hardware_qcom_display" groups="qcom" revision="vic-sm8650" remote="orion" />
+  <project path="hardware/qcom-caf/sm8650/media" name="hardware_qcom_media" groups="qcom,lanai-vendor" revision="vic-sm8650" remote="orion" />
+  <project path="device/qcom/sepolicy_vndr/sm8650" name="device_qcom_sepolicy_vndr" groups="qcom,lanai-vendor" revision="vic-sm8650" remote="orion" />
+
+    <!-- Codelinaro SM8150 HALs -->
+  <project path="hardware/qcom-caf/sm8150/audio" name="LineageOS/android_hardware_qcom_audio" groups="qcom,msmnile" remote="github-other" revision="lineage-22.1-caf-sm8150" />
+  <project path="hardware/qcom-caf/sm8150/display" name="android_hardware_qcom_display" groups="qcom" remote="crdroid" revision="15.0-caf-sm8150" />
+  <project path="hardware/qcom-caf/sm8150/media" name="LineageOS/android_hardware_qcom_media" groups="qcom,msmnile" remote="github-other" revision="lineage-22.1-caf-sm8150" />
+  
 </manifest>

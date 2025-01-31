@@ -1,4 +1,4 @@
-# OrionOS
+![banner](https://github.com/OrionOS-Project/.github/blob/main/profile/banner/orion-organization-profile.png)
 
 ### Create a directory for the source files
 ```
@@ -26,6 +26,8 @@ make orion -j$(nproc --all)
 ```
 ORION_MAINTAINER := Unknown
 ORION_GAPPS := true/false
+ORION_FULL_GAPPS := true/false
+ORION_BUILD_GOOGLE_TELEPHONY := true/false
 TARGET_ENABLE_BLUR := true/false
 TARGET_BOOT_ANIMATION_RES := 720/1080/1440
 # Bootanimation flags for Pixel Device
