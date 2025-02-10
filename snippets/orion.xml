@@ -109,10 +109,9 @@
   <!-- Vendor -->
   <project path="vendor/certification" name="vendor_certification" remote="orion" />
   <project path="vendor/addons" name="vendor_addons" remote="orion" />
-  <project path="vendor/gms" name="vendor_gms" remote="orion-bitbucket" clone-depth="1" />
+  <project path="vendor/gms" name="vendor_gms" remote="orion-gitea" />
   <project path="vendor/lineage" name="vendor_orion" remote="orion" />
   <project path="vendor/pixel-framework" name="vendor_pixel-framework" remote="orion" />
-  <project path="vendor/pixel-style" name="vendor_pixel-style" remote="orion" />
 
   <!-- OTA -->
   <project path="orion/orion_ota" name="orion_ota" remote="orion" />
