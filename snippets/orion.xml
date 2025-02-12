@@ -93,7 +93,6 @@
   <project path="packages/modules/Wifi" name="packages_modules_Wifi" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="orion" />
   <project path="packages/services/DeviceAsWebcam" name="packages_services_DeviceAsWebcam" groups="pdk-cw-fs,pdk-fs" remote="orion" />
   <project path="packages/services/Telecomm" name="packages_services_Telecomm" groups="pdk-cw-fs,pdk-fs" remote="orion" />
-  <project path="packages/services/OmniJaws" name="packages_services_OmniJaws" groups="pdk" remote="orion" />
 
   <!-- SDK -->
   <project path="lineage-sdk" name="lineage-sdk" remote="orion" />
