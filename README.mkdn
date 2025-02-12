@@ -25,11 +25,12 @@ make orion -j$(nproc --all)
 ### OrionOS Flags
 ```
 ORION_MAINTAINER := Unknown
-ORION_GAPPS := true/false
-ORION_FULL_GAPPS := true/false
-ORION_BUILD_GOOGLE_TELEPHONY := true/false
-TARGET_ENABLE_BLUR := true/false
+ORION_MAINTAINER_LINK := https://t*me/username
+ORION_BUILD_TYPE := Unofficial
+ORION_GAPPS := true
 TARGET_BOOT_ANIMATION_RES := 720/1080/1440
-# Bootanimation flags for Pixel Device
+# for devices that support udfps
+TARGET_HAS_UDFPS := true
+# Bootanimation for pixel device
 TARGET_PIXEL_BOOT_ANIMATION_RES := 1080/1440
 ```
