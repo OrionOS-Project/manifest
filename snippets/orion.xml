@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="orion"
+          fetch="https://github.com/OrionOS-Project/"
+          sync-c="true"
+          sync-j="4"
+          revision="refs/heads/bka" />
+  
+  <remote name="orion-cb"
+          fetch="https://codeberg.org/OrionOS-Project/"
+          sync-c="true"
+          sync-j="4"
+          revision="refs/heads/bka" />
+
+  <remote name="miku"
+          fetch="https://github.com/Miku-UI/"
+          sync-c="true"
+          sync-j="4"
+          revision="refs/heads/15" />
+
+  <remote name="derp"
+          fetch="https://github.com/DerpFest-AOSP/"
+          sync-c="true"
+          sync-j="4"
+          revision="refs/heads/16" />
+
+  <!-- Android Core -->
+  <project path="manifest" name="manifest" remote="orion" />
+  <project path="art" name="art" groups="pdk" remote="orion" />
+  <project path="bionic" name="bionic" groups="pdk" remote="orion" />
+
+  <!-- Build System -->
+  <project path="build/make" name="build" groups="pdk,sysui-studio" remote="orion">
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/release" name="build_release" groups="pdk,tradefed,sysui-studio" remote="orion" />
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed,sysui-studio" remote="orion" />
+
+  <!-- Bootable -->
+  <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="orion" />
+  <project path="bootable/deprecated-ota" name="bootable_deprecated-ota" groups="pdk-cw" remote="orion" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/av" name="frameworks_av" groups="pdk,sysui-studio" remote="orion" />
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="orion" />
+  <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="orion" />
+  <project path="frameworks/libs/systemui" name="frameworks_libs_systemui" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="orion" />
+  <project path="frameworks/opt/telephony" name="frameworks_opt_telephony" groups="pdk,sysui-studio" remote="orion" />
+
+  <!-- Hardware -->
+  <project path="hardware/interfaces" name="hardware_interfaces" groups="pdk,sysui-studio" remote="orion" />
+
+  <!-- External Libraries -->
+  <project path="external/bouncycastle" name="external_bouncycastle" groups="pdk" remote="orion" />
+  <project path="external/zstd" name="external_zstd" remote="orion" />
+  <project path="external/FadingEdgeLayout" name="external_FadingEdgeLayout" remote="orion" />
+
+  <!-- Packages -->
+  <project path="packages/apps/Backgrounds" name="packages_apps_Backgrounds" remote="orion" />
+  <project path="packages/apps/Launcher3" name="packages_apps_Launcher3" groups="pdk-fs,sysui-studio,pdk-cw-tvc" remote="orion" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs,pdk-cw-tvc,sysui-studio" remote="orion" />
+  <project path="packages/apps/Updater" name="packages_apps_Updater" remote="orion" />
+  <project path="packages/apps/LineageParts" name="packages_apps_LineageParts" remote="orion" />
+  <project path="packages/modules/StatsD" name="packages_modules_StatsD" groups="pdk-cw-fs,pdk-fs" remote="orion" />
+  <project path="packages/apps/FaceUnlock" name="packages_apps_FaceUnlock" remote="orion" />
+  <project path="packages/apps/DocumentsUI" name="packages_apps_DocumentsUI" groups="pdk-cw-fs,pdk-fs" remote="orion" />
+  <project path="packages/apps/LMOFreeform" name="packages_apps_LMOFreeform" remote="orion" />
+  <project path="packages/apps/SettingsIntelligence" name="packages_apps_SettingsIntelligence" groups="pdk-fs" remote="orion" />
+  <project path="packages/apps/SetupWizard" name="packages_apps_SetupWizard" remote="orion" />
+  <project path="packages/apps/ColumbusService" name="packages_apps_ColumbusService" remote="orion" />
+  <project path="packages/apps/MikuUILyricsStubDummy" name="platform_packages_apps_MikuUILyricsStubDummy" revision="master" remote="miku" />
+  <project path="packages/apps/GameSpace" name="android_packages_apps_GameSpace" revision="16" remote="derp" />
+
+  <!-- Modules -->
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" remote="orion" />
+  <project path="packages/modules/Wifi" name="packages_modules_Wifi" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="orion" />
+
+  <!-- Services -->
+  <project path="packages/services/SmartSpace" name="packages_services_SmartSpace" remote="orion" />
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" groups="pdk-cw-fs,pdk-fs" remote="orion" />
+  <project path="packages/services/Telephony" name="packages_services_Telephony" groups="pdk-cw-fs,pdk-fs" remote="orion" />
+  
+  <!-- Providers -->
+  <project path="packages/providers/DownloadProvider" name="packages_providers_DownloadProvider" groups="pdk-cw-fs,pdk-fs" remote="orion" />
+  
+  <!-- Sepolicy -->
+  <project path="device/lineage/sepolicy" name="device_lineage_sepolicy" remote="orion" />
+
+  <!-- System -->
+  <project path="system/core" name="system_core" groups="pdk" remote="orion" />
+  <project path="system/sepolicy" name="system_sepolicy" groups="pdk" remote="orion" />
+  <project path="system/memory/lmkd" name="system_memory_lmkd" groups="pdk" remote="orion" />
+
+  <!-- Vendor -->
+  <project path="vendor/lineage" name="vendor_lineage" remote="orion" />
+  <project path="vendor/addons" name="vendor_addons" remote="orion" />
+  <project path="vendor/support" name="vendor_support" remote="orion" />
+  <project path="vendor/official_maintainer" name="official_maintainer" remote="orion" />
+  <project path="vendor/certification" name="vendor_ceritification" remote="orion" />
+  <project path="vendor/pixel/gms" name="vendor_pixel_gms" remote="orion-cb" />
+  <project path="vendor/pixel/launcher" name="vendor_pixel_launcher" remote="orion-cb" />
+  <project path="vendor/pixel/themepicker" name="vendor_pixel_themepicker" remote="orion-cb" />
+
+  <!-- Lineage SDK -->
+  <project path="lineage-sdk" name="lineage-sdk" remote="orion" />
+</manifest>

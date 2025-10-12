@@ -1,36 +1,41 @@
-LineageOS
-===========
+![banner](https://github.com/OrionOS-Project/.github/blob/main/profile/banner/orion-organization-profile.png)
 
-Getting started
----------------
-
-To get started with Android/LineageOS, you'll need to get familiar with [Source Control Tools](https://source.android.com/setup/develop).
-
-To initialize your local repository using the LineageOS trees, use a command like this:
+### Create a directory for the source files
 ```
-repo init -u https://github.com/LineageOS/android.git -b lineage-23.0 --git-lfs
+mkdir OrionOS
+cd OrionOS
 ```
-Then to sync up:
+### Initializing Repo
 ```
-repo sync
+repo init -u https://github.com/OrionOS-Project/manifest -b bka --git-lfs
 ```
-Please see the [LineageOS Wiki](https://wiki.lineageos.org/) for building instructions, by device.
 
+### Sync sources
+```
+repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune --retry-fetches=5 -j$(nproc --all)
+```
 
-Submitting patches
-------------------
-Patches are always welcome! Please submit your patches via LineageOS Gerrit!
+### Run your build
+```
+. build/envsetup.sh
+lunch lineage_<device_name>-bp2a-userdebug
+mka orion -j$(nproc --all)
+```
 
-Simply follow our guide on [how to submit patches](https://wiki.lineageos.org/submitting-patch-howto.html).
+### OrionOS Flags
+```
+# Maintainer Name
+ORION_MAINTAINER := Unknown
 
-To view the status of your and others' patches, visit [LineageOS Gerrit Code Review](https://review.lineageos.org/).
+# Enable/Disable GApps
+ORION_GAPPS := true/false
 
+# Pixel Launcher (requires ORION_GAPPS = true; default: disabled)
+ORION_INCLUDE_PIXEL_LAUNCHER := true/false
 
-Buildbot
---------
+# Bootanimation Resolution
+TARGET_BOOT_ANIMATION_RES := 720/1080/1440
 
-All supported devices are built weekly and periodically as changes are committed to ensure the source trees remain buildable.
-
-You can view the current build statuses at [LineageOS Buildkite](https://buildkite.com/lineageos).
-
-Builds produced weekly by the buildbot can be downloaded from [LineageOS downloads](https://download.lineageos.org/).
+# Bootanimation for Pixel Devices
+TARGET_PIXEL_BOOT_ANIMATION_RES := 1080/1440
+```
