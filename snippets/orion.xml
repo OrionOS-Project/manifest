@@ -18,12 +18,6 @@
           sync-j="4"
           revision="refs/heads/15" />
 
-  <remote name="derp"
-          fetch="https://github.com/DerpFest-AOSP/"
-          sync-c="true"
-          sync-j="4"
-          revision="refs/heads/16" />
-
   <!-- Android Core -->
   <project path="manifest" name="manifest" remote="orion" />
   <project path="art" name="art" groups="pdk" remote="orion" />
@@ -74,8 +68,9 @@
   <project path="packages/apps/SetupWizard" name="packages_apps_SetupWizard" remote="orion" />
   <project path="packages/apps/ColumbusService" name="packages_apps_ColumbusService" remote="orion" />
   <project path="packages/apps/MikuUILyricsStubDummy" name="platform_packages_apps_MikuUILyricsStubDummy" revision="master" remote="miku" />
-  <project path="packages/apps/GameSpace" name="android_packages_apps_GameSpace" revision="16" remote="derp" />
+  <project path="packages/apps/GameSpace" name="packages_apps_GameSpace" remote="orion" />
   <project path="packages/apps/Molecular" name="packages_apps_Molecular" remote="orion" />
+  <project path="packages/apps/OmniStyle" name="packages_apps_OmniStyle" remote="orion" />
 
   <!-- Modules -->
   <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" remote="orion" />
@@ -104,8 +99,6 @@
   <project path="vendor/official_maintainer" name="official_maintainer" remote="orion" />
   <project path="vendor/certification" name="vendor_ceritification" remote="orion" />
   <project path="vendor/pixel/gms" name="vendor_pixel_gms" remote="orion-cb" />
-  <project path="vendor/pixel/launcher" name="vendor_pixel_launcher" remote="orion-cb" />
-  <project path="vendor/pixel/themepicker" name="vendor_pixel_themepicker" remote="orion-cb" />
 
   <!-- Lineage SDK -->
   <project path="lineage-sdk" name="lineage-sdk" remote="orion" />
