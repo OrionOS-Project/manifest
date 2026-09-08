@@ -7,7 +7,7 @@ cd OrionOS
 ```
 ### Initializing Repo
 ```
-repo init -u https://github.com/OrionOS-Project/manifest -b bka --git-lfs
+repo init -u https://github.com/OrionOS-Project/manifest -b bka-2 --git-lfs
 ```
 
 ### Sync sources

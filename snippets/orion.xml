@@ -4,7 +4,7 @@
           fetch="https://github.com/OrionOS-Project/"
           sync-c="true"
           sync-j="4"
-          revision="refs/heads/bka" />
+          revision="refs/heads/bka-2" />
   
   <remote name="orion-cb"
           fetch="https://codeberg.org/OrionOS-Project/"
@@ -16,7 +16,7 @@
           fetch="https://github.com/Miku-UI/"
           sync-c="true"
           sync-j="4"
-          revision="refs/heads/15" />
+          revision="refs/heads/Blooming_v2" />
 
   <!-- Android Core -->
   <project path="manifest" name="manifest" remote="orion" />
