@@ -51,7 +51,6 @@
 
   <!-- External Libraries -->
   <project path="external/bouncycastle" name="external_bouncycastle" groups="pdk" remote="orion" />
-  <project path="external/zstd" name="external_zstd" remote="orion" />
   <project path="external/FadingEdgeLayout" name="external_FadingEdgeLayout" remote="orion" />
 
   <!-- Packages -->
