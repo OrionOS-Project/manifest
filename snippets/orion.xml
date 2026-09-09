@@ -59,7 +59,6 @@
   <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs,pdk-cw-tvc,sysui-studio" remote="orion" />
   <project path="packages/apps/Updater" name="packages_apps_Updater" remote="orion" />
   <project path="packages/apps/LineageParts" name="packages_apps_LineageParts" remote="orion" />
-  <project path="packages/modules/StatsD" name="packages_modules_StatsD" groups="pdk-cw-fs,pdk-fs" remote="orion" />
   <project path="packages/apps/FaceUnlock" name="packages_apps_FaceUnlock" remote="orion" />
   <project path="packages/apps/DocumentsUI" name="packages_apps_DocumentsUI" groups="pdk-cw-fs,pdk-fs" remote="orion" />
   <project path="packages/apps/LMOFreeform" name="packages_apps_LMOFreeform" remote="orion" />
