@@ -7,7 +7,7 @@ cd OrionOS
 ```
 ### Initializing Repo
 ```
-repo init -u https://github.com/OrionOS-Project/manifest -b bka --git-lfs
+repo init -u https://github.com/OrionOS-Project/manifest -b bka-2 --git-lfs
 ```
 
 ### Sync sources
@@ -18,7 +18,7 @@ repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune 
 ### Run your build
 ```
 . build/envsetup.sh
-lunch lineage_<device_name>-bp2a-userdebug
+lunch lineage_<device_name>-bp4a-userdebug
 mka orion -j$(nproc --all)
 ```
 

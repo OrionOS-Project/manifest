@@ -1,22 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+
   <remote name="orion"
           fetch="https://github.com/OrionOS-Project/"
           sync-c="true"
           sync-j="4"
-          revision="refs/heads/bka" />
+          revision="refs/heads/bka-2" />
   
-  <remote name="orion-cb"
-          fetch="https://codeberg.org/OrionOS-Project/"
+  <remote name="orion-gitlab"
+          fetch="https://gitlab.com/ryudev-project/"
           sync-c="true"
           sync-j="4"
-          revision="refs/heads/bka" />
+          revision="refs/heads/16.2" />
 
-  <remote name="miku"
-          fetch="https://github.com/Miku-UI/"
-          sync-c="true"
-          sync-j="4"
-          revision="refs/heads/15" />
+  <!-- Remove project -->
+  <remove-project path="art" />
+  <remove-project path="bionic" />
+  <remove-project path="bootable/recovery" />
+  <remove-project path="bootable/deprecated-ota" />
+  <remove-project path="build/make" />
+  <remove-project path="build/release" />
+  <remove-project path="build/soong" />
+  <remove-project path="device/lineage/sepolicy" />
+  <remove-project path="external/bouncycastle" />
+  <remove-project path="external/zstd" />
+  <remove-project path="lineage-sdk" />
+  <remove-project path="frameworks/av" />
+  <remove-project path="frameworks/base" />
+  <remove-project path="frameworks/libs/systemui" />
+  <remove-project path="frameworks/native" />
+  <remove-project path="frameworks/opt/telephony" />
+  <remove-project path="hardware/interfaces" />
+  <remove-project path="packages/apps/LineageParts" />
+  <remove-project path="packages/apps/Backgrounds" />
+  <remove-project path="packages/apps/DocumentsUI" />
+  <remove-project path="packages/apps/Launcher3" />
+  <remove-project path="packages/apps/Settings" />
+  <remove-project path="packages/apps/SetupWizard" />
+  <remove-project path="packages/apps/Updater" />
+  <remove-project path="packages/modules/Connectivity" />
+  <remove-project path="packages/modules/Wifi" />
+  <remove-project path="packages/providers/DownloadProvider" />
+  <remove-project path="packages/services/Telecomm" />
+  <remove-project path="packages/services/Telephony" />
+  <remove-project path="system/core" />
+  <remove-project path="system/sepolicy" />
+  <remove-project path="vendor/crowdin" />
+  <remove-project path="vendor/lineage" />
 
   <!-- Android Core -->
   <project path="manifest" name="manifest" remote="orion" />
@@ -24,16 +54,19 @@
   <project path="bionic" name="bionic" groups="pdk" remote="orion" />
 
   <!-- Build System -->
-  <project path="build/make" name="build" groups="pdk,sysui-studio" remote="orion">
-    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
-    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
-    <linkfile src="core" dest="build/core" />
-    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
-    <linkfile src="target" dest="build/target" />
-    <linkfile src="tools" dest="build/tools" />
+  <project path="build/make" name="build" groups="pdk,sysui-studio" remote="orion" >
+    <linkfile dest="build/CleanSpec.mk" src="CleanSpec.mk" />
+    <linkfile dest="build/buildspec.mk.default" src="buildspec.mk.default" />
+    <linkfile dest="build/core" src="core" />
+    <linkfile dest="build/envsetup.sh" src="envsetup.sh" />
+    <linkfile dest="build/target" src="target" />
+    <linkfile dest="build/tools" src="tools" />
   </project>
   <project path="build/release" name="build_release" groups="pdk,tradefed,sysui-studio" remote="orion" />
-  <project path="build/soong" name="build_soong" groups="pdk,tradefed,sysui-studio" remote="orion" />
+  <project path="build/soong" name="android_build_soong" groups="pdk,tradefed,sysui-studio" remote="orion" >
+    <linkfile dest="Android.bp" src="root.bp" />
+    <linkfile dest="bootstrap.bash" src="bootstrap.bash" />
+  </project>
 
   <!-- Bootable -->
   <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="orion" />
@@ -51,7 +84,6 @@
 
   <!-- External Libraries -->
   <project path="external/bouncycastle" name="external_bouncycastle" groups="pdk" remote="orion" />
-  <project path="external/zstd" name="external_zstd" remote="orion" />
   <project path="external/FadingEdgeLayout" name="external_FadingEdgeLayout" remote="orion" />
 
   <!-- Packages -->
@@ -67,7 +99,6 @@
   <project path="packages/apps/SettingsIntelligence" name="packages_apps_SettingsIntelligence" groups="pdk-fs" remote="orion" />
   <project path="packages/apps/SetupWizard" name="packages_apps_SetupWizard" remote="orion" />
   <project path="packages/apps/ColumbusService" name="packages_apps_ColumbusService" remote="orion" />
-  <project path="packages/apps/MikuUILyricsStubDummy" name="platform_packages_apps_MikuUILyricsStubDummy" revision="master" remote="miku" />
   <project path="packages/apps/GameSpace" name="packages_apps_GameSpace" remote="orion" />
   <project path="packages/apps/Molecular" name="packages_apps_Molecular" remote="orion" />
   <project path="packages/apps/OmniStyle" name="packages_apps_OmniStyle" remote="orion" />
@@ -97,8 +128,8 @@
   <project path="vendor/addons" name="vendor_addons" remote="orion" />
   <project path="vendor/support" name="vendor_support" remote="orion" />
   <project path="vendor/official_maintainer" name="official_maintainer" remote="orion" />
-  <project path="vendor/certification" name="vendor_ceritification" remote="orion" />
-  <project path="vendor/pixel/gms" name="vendor_pixel_gms" remote="orion-cb" />
+  <project path="vendor/certification" name="vendor_certification" remote="orion" />
+  <project path="vendor/pixel/gms" name="vendor_pixel_gms" remote="orion-gitlab" />
 
   <!-- Lineage SDK -->
   <project path="lineage-sdk" name="lineage-sdk" remote="orion" />
